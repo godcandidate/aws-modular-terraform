@@ -20,6 +20,12 @@ module "security_groups" {
   depends_on = [module.vpc]
 }
 
+# State Backend
+module "state_backend" {
+  source = "../../global-modules/state-backend"
+  deployment_type = "eks"
+}
+
 # EKS Cluster
 resource "aws_eks_cluster" "main" {
   name     = var.cluster_name

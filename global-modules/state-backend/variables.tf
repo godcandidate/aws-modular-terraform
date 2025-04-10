@@ -15,3 +15,8 @@ variable "eks_locks_table_name" {
   type        = string
   default     = "terraform-locks-eks"
 }
+
+variable "deployment_type" {
+  description = "Type of deployment: 'ec2' or 'eks'"
+  type        = string
+}
