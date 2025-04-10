@@ -1,0 +1,10 @@
+.terraform
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+
+# Ignore generated files
+*.log
+*.out
+*.plan
+*.plan.json
