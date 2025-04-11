@@ -1,54 +1,62 @@
 # AWS Modular Terraform Infrastructure
 
-This repository contains Terraform configurations for provisioning a complete AWS infrastructure including VPC, EC2, and EKS cluster.
+This repository contains modular Terraform configurations for deploying infrastructure on AWS. It provides two main deployment options: EC2-based and EKS-based deployments, both following infrastructure-as-code best practices and modular design principles.
 
-## Project Structure
+## Overview
+
+The repository is organized into two main deployment configurations:
+
+- **EC2 Deployment**: Single EC2 instance deployment with necessary networking and security configurations
+- **EKS Deployment**: Kubernetes cluster deployment with worker nodes and application deployment capabilities
+
+## Repository Structure
 
 ```
-├── modules/
-│   ├── vpc/                 # VPC, subnets, and networking components
-│   ├── ec2/                 # EC2 instance configuration
-│   ├── eks/                 # EKS cluster and worker nodes
-│   └── security-groups/     # Security group definitions
-├── main.tf                  # Root module configuration
-├── variables.tf            # Input variables
-├── outputs.tf              # Output definitions
-├── providers.tf            # Provider configurations
-└── backend.tf             # Remote state configuration
+├── ec2-deployment/           # EC2-based infrastructure
+│   ├── modules/             # EC2 specific modules
+│   │   ├── vpc/            # VPC configuration
+│   │   ├── security-groups/ # Security group rules
+│   │   └── ec2/            # EC2 instance configuration
+│   └── README.md           # EC2 deployment documentation
+│
+├── eks-deployment/           # EKS-based infrastructure
+│   ├── modules/             # EKS specific modules
+│   │   ├── vpc/            # VPC configuration
+│   │   ├── security-groups/ # Security group rules
+│   │   ├── iam/            # IAM roles and policies
+│   │   └── eks/            # EKS cluster configuration
+│   └── README.md           # EKS deployment documentation
+│
+└── README.md               # Main documentation
 ```
+
+## Common Features
+
+- **Modular Design**: Each component is organized into reusable modules
+- **State Management**: S3 backend with DynamoDB locking
+- **Security**: Proper IAM roles and security group configurations
+- **Network Isolation**: VPC with public/private subnets
 
 ## Prerequisites
 
-1. AWS CLI configured with appropriate credentials
-2. Terraform >= 1.0.0
-3. An existing SSH key pair in AWS
-4. S3 bucket for remote state (will be created automatically)
+- AWS CLI configured with appropriate credentials
+- Terraform v1.0.0 or later
+- Basic understanding of AWS services and Terraform
 
-## Usage
+## Getting Started
 
-1. Initialize Terraform:
-   ```bash
-   terraform init
-   ```
+1. Clone this repository
+2. Choose your deployment type (EC2 or EKS)
+3. Navigate to the respective deployment directory
+4. Follow the deployment-specific README instructions
 
-2. Review the planned changes:
-   ```bash
-   terraform plan
-   ```
+## Contributing
 
-3. Apply the configuration:
-   ```bash
-   terraform apply
-   ```
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Inputs
+## License
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| region | AWS region | string | us-east-1 |
-| docker_image | Docker image to deploy | string | nginx:latest |
-| instance_type | EC2 instance type | string | t3.medium |
-| ssh_key_name | Name of existing SSH key pair | string | - |
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Outputs
 
