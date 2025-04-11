@@ -55,5 +55,5 @@ variable "min_size" {
 variable "docker_image" {
   description = "Docker image to deploy"
   type        = string
-  default     = "qr-code-app:latest"
+  default     = "godcandidate/qr-code-app:latest"
 }

@@ -53,10 +53,7 @@ variable "min_size" {
   type        = number
 }
 
-variable "docker_image" {
-  description = "Docker image to deploy"
-  type        = string
-}
+
 
 variable "module_depends_on" {
   description = "List of modules or resources this module depends on"
