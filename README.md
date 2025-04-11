@@ -9,6 +9,8 @@ The repository is organized into two main deployment configurations:
 - **EC2 Deployment**: Single EC2 instance deployment with necessary networking and security configurations
 - **EKS Deployment**: Kubernetes cluster deployment with worker nodes and application deployment capabilities
 
+<p align="center"> <img src="./assets/project-infra.png" alt="Architecture Diagram" width="800"> </p>
+
 ## Repository Structure
 
 ```
