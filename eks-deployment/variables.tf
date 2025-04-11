@@ -31,19 +31,19 @@ variable "kubernetes_version" {
 variable "instance_type" {
   description = "Instance type for EKS nodes"
   type        = string
-  default     = "t2.micro"
+  default     = "t3.micro"#t3.small"
 }
 
 variable "desired_size" {
   description = "Desired number of worker nodes"
   type        = number
-  default     = 1
+  default     = 2
 }
 
 variable "max_size" {
   description = "Maximum number of worker nodes"
   type        = number
-  default     = 2
+  default     = 3
 }
 
 variable "min_size" {
